@@ -1,0 +1,10 @@
+import requests
+
+url = input("Enter target URL: ")
+
+response = requests.get(url)
+
+with open("result.html", "w") as f:
+    f.write(response.text)
+
+print("[+] Page saved as result.html")
