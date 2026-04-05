@@ -1,0 +1,15 @@
+import socket
+import whois
+
+domain = input("Enter domain: ")
+
+# IP
+ip = socket.gethostbyname(domain)
+print(f"[+] IP Address: {ip}")
+
+# WHOIS
+info = whois.whois(domain)
+
+print(f"[+] Registrar: {info.registrar}")
+print(f"[+] Creation Date: {info.creation_date}")
+print(f"[+] Expiry Date: {info.expiration_date}")
