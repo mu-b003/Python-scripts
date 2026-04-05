@@ -1,0 +1,11 @@
+import os
+
+commands = [
+    "whoami",
+    "pwd",
+    "ls -la"
+]
+
+for cmd in commands:
+    print(f"\nRunning: {cmd}")
+    os.system(cmd)
