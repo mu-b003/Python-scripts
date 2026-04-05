@@ -1,0 +1,16 @@
+import requests
+
+domain = input("Enter domain (example.com): ")
+
+subdomains = ["www", "mail", "ftp", "admin", "test"]
+
+print("\nScanning subdomains...\n")
+
+for sub in subdomains:
+    url = f"http://{sub}.{domain}"
+    
+    try:
+        requests.get(url)
+        print(f"[+] Found: {url}")
+    except:
+        pass
