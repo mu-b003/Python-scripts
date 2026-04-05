@@ -1,0 +1,12 @@
+import socket
+
+target = input("Enter domain: ")
+
+ip = socket.gethostbyname(target)
+print(f"[+] IP: {ip}")
+
+try:
+    host = socket.gethostbyaddr(ip)
+    print(f"[+] Hostname: {host[0]}")
+except:
+    pass
