@@ -1,0 +1,7 @@
+import magic
+
+file = input("Enter file path: ")
+
+file_type = magic.from_file(file)
+
+print(f"[+] File Type: {file_type}")
