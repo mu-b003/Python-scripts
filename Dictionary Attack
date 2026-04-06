@@ -1,0 +1,10 @@
+password = "admin123"
+
+wordlist = ["123456", "password", "admin", "admin123", "qwerty"]
+
+for word in wordlist:
+    if word == password:
+        print(f"[+] Password Found: {word}")
+        break
+    else:
+        print(f"[-] Tried: {word}")
