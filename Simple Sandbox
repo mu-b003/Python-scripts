@@ -1,0 +1,17 @@
+import subprocess
+
+file = input("Enter file to analyze: ")
+
+print("[+] Running in sandbox...\n")
+
+try:
+    result = subprocess.run(file, capture_output=True, text=True, timeout=5)
+
+    print("[STDOUT]:")
+    print(result.stdout)
+
+    print("[STDERR]:")
+    print(result.stderr)
+
+except Exception as e:
+    print(f"Error: {e}")
