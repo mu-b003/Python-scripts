@@ -1,0 +1,12 @@
+import itertools
+
+name = "admin"
+numbers = "123"
+
+combinations = []
+
+for i in range(1, 4):
+    for combo in itertools.product(name + numbers, repeat=i):
+        combinations.append("".join(combo))
+
+print(combinations[:20])
