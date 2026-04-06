@@ -1,0 +1,12 @@
+import hashlib
+
+file = input("Enter file path: ")
+
+with open(file, "rb") as f:
+    data = f.read()
+
+md5 = hashlib.md5(data).hexdigest()
+sha256 = hashlib.sha256(data).hexdigest()
+
+print(f"[+] MD5: {md5}")
+print(f"[+] SHA256: {sha256}")
