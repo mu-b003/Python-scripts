@@ -1,0 +1,8 @@
+dorks = [
+    "site:example.com filetype:pdf",
+    "site:example.com intitle:admin",
+    "site:example.com inurl:login"
+]
+
+for dork in dorks:
+    print(f"https://www.google.com/search?q={dork}")
