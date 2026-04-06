@@ -1,0 +1,9 @@
+from scapy.all import *
+from scapy.layers.http import HTTPRequest
+
+def process_packet(packet):
+    if packet.haslayer(HTTPRequest):
+        url = packet[HTTPRequest].Host.decode() + packet[HTTPRequest].Path.decode()
+        print(f"[+] HTTP Request >> {url}")
+
+sniff(filter="tcp port 80", prn=process_packet, store=False)
