@@ -1,0 +1,9 @@
+import socket
+
+s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_TCP)
+
+print("Sniffing started...\n")
+
+while True:
+    packet = s.recvfrom(65565)
+    print(packet)
