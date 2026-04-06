@@ -1,0 +1,6 @@
+import psutil
+
+print("[+] Monitoring network connections...\n")
+
+for conn in psutil.net_connections():
+    print(conn)
