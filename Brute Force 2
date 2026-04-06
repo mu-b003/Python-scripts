@@ -1,0 +1,15 @@
+import itertools
+import string
+
+target = "ab12"
+
+chars = string.ascii_lowercase + string.digits
+
+for attempt in itertools.product(chars, repeat=4):
+    guess = ''.join(attempt)
+    
+    print(f"Trying: {guess}")
+    
+    if guess == target:
+        print(f"[+] Password Found: {guess}")
+        break
