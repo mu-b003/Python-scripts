@@ -1,0 +1,13 @@
+import re
+import requests
+
+url = input("Enter website URL: ")
+
+response = requests.get(url)
+
+emails = re.findall(r"[a-zA-Z0-9._+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+", response.text)
+
+print("\nEmails found:\n")
+
+for email in set(emails):
+    print(email)
