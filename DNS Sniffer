@@ -1,0 +1,8 @@
+from scapy.all import *
+from scapy.layers.dns import DNSQR
+
+def dns_sniff(packet):
+    if packet.haslayer(DNSQR):
+        print(f"[+] DNS Query: {packet[DNSQR].qname.decode()}")
+
+sniff(filter="udp port 53", prn=dns_sniff, store=False)
