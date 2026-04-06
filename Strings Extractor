@@ -1,0 +1,11 @@
+import re
+
+file = input("Enter file path: ")
+
+with open(file, "rb") as f:
+    data = f.read()
+
+strings = re.findall(b"[ -~]{4,}", data)
+
+for s in strings[:50]:
+    print(s.decode(errors="ignore"))
